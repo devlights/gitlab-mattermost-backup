@@ -26,7 +26,3 @@ su - mattermost -c "/opt/gitlab/embedded/bin/pg_dump -U gitlab_mattermost -h /va
 backupfile=$(date +%s_%Y_%m_%d)_mattermost_backup.tar.gz
 tar -zcf $gitlabBackupDir/$backupfile $gitlabBackupDir/mattermost
 rm -rf $gitlabBackupDir/mattermost
-
-# upload to S3
-$awscli s3 cp $gitlabBackupDir/$backupfile $s3path
-rm -f $gitlabBackupDir/$backupfile
