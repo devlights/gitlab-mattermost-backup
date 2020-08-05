@@ -1,17 +1,7 @@
 #!/bin/bash
 
-currDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-confFile="$currDir/backup_mattermost.conf"
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
-
-# conffile
-if [ -e $confFile -a -r $confFile ]
-then
-    source $confFile
-else
-    echo "$confFile not found."
-    exit 1
-fi
+gitlabBackupDir="/var/opt/gitlab/backups"
+mattermostDir="/var/opt/gitlab/mattermost"
 
 # prepare
 rm -rf $gitlabBackupDir/mattermost
